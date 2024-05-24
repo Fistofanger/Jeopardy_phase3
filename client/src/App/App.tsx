@@ -19,7 +19,6 @@ function App(): JSX.Element {
   const axiosToken = async (): Promise<void> => {
     const { data }: AxiosResponse<UsersResponse> = await request.get('/tokens/refresh');
     if (data.message === 'success') {
-     
       setAccessToken(data.accessToken);
       dispatch({ type: 'users/login', payload: data.user });
     }

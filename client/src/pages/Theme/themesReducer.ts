@@ -1,4 +1,4 @@
-import type {Theme, ThemeState, ActionTheme} from './type/type'
+import type { Theme, ThemeState, ActionTheme } from './type/type'
 
 export type ThemesReducer = {
   themes: Theme[];
