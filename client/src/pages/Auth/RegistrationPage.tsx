@@ -11,7 +11,7 @@ function RegistrationPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState('');
+  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
@@ -21,7 +21,7 @@ function RegistrationPage(): JSX.Element {
 
     if (password === checkPassword) {
       const { data }: AxiosResponse<UsersResponse> = await request.post('/users', {
-        username,
+        userName,
         email,
         password,
       });
@@ -43,8 +43,8 @@ function RegistrationPage(): JSX.Element {
           type="text"
           name="name"
           required
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
         />
       </label>
       <br />
