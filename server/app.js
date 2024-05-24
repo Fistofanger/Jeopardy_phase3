@@ -9,7 +9,7 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(removeHeaders);
 app.use(express.json());
-app.use('/', indexRouter);
+app.use('/api', indexRouter);
 
 app.listen(PORT, () => {
   console.log(`Server started on ${PORT} port`);

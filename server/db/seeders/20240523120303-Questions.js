@@ -18,7 +18,7 @@ module.exports = {
         {
           question: 'Какое имя нам должно о чём-то говорить?',
           answer: 'Ибрагим',
-          score: 100,
+          score: 200,
           themeId: 1,
           isAnswered: false,
           createdAt: new Date(),
@@ -27,7 +27,7 @@ module.exports = {
         {
           question: 'За за какое место для посиделок данный персонаж списывает 100 рублей?',
           answer: 'пенек',
-          score: 100,
+          score: 300,
           themeId: 1,
           isAnswered: false,
           createdAt: new Date(),
@@ -36,7 +36,7 @@ module.exports = {
         {
           question: 'Лимур призывает вас к какому-ту действию, что нужно сделать?',
           answer: 'узбагоиться',
-          score: 100,
+          score: 400,
           themeId: 1,
           isAnswered: false,
           createdAt: new Date(),
@@ -45,16 +45,7 @@ module.exports = {
         {
           question: 'Как звали мальчика из данного мема?',
           answer: 'Саша',
-          score: 100,
-          themeId: 1,
-          isAnswered: true,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          question: 'Какая разборка происходила в данном видео меме?',
-          answer: 'Питерская',
-          score: 100,
+          score: 500,
           themeId: 1,
           isAnswered: true,
           createdAt: new Date(),
@@ -72,7 +63,7 @@ module.exports = {
         {
           question: 'Угадайте название фильма',
           answer: 'сияние',
-          score: 100,
+          score: 200,
           themeId: 2,
           isAnswered: true,
           createdAt: new Date(),
@@ -81,7 +72,7 @@ module.exports = {
         {
           question: 'Угадайте название фильма',
           answer: 'титаник',
-          score: 100,
+          score: 300,
           themeId: 2,
           isAnswered: true,
           createdAt: new Date(),
@@ -90,7 +81,7 @@ module.exports = {
         {
           question: 'Угадайте название фильма',
           answer: 'заводной апельсин',
-          score: 100,
+          score: 400,
           themeId: 2,
           isAnswered: true,
           createdAt: new Date(),
@@ -99,16 +90,7 @@ module.exports = {
         {
           question: 'Угадайте название фильма',
           answer: 'властелин колец',
-          score: 100,
-          themeId: 2,
-          isAnswered: true,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          question: 'Угадайте название фильма',
-          answer: 'матрица',
-          score: 100,
+          score: 500,
           themeId: 2,
           isAnswered: true,
           createdAt: new Date(),
