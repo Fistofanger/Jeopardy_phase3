@@ -1,8 +1,25 @@
 .ThemeRow {
+  width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
 .QuestionsRow {
+  width: 80%;
   display: flex;
+  justify-content: space-around;
+}
+
+.ThemePage {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.ThemePage h3 {
+  margin: auto 0;
 }

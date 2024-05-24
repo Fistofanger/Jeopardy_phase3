@@ -7,12 +7,12 @@ module.exports = {
       'Themes',
       [
         {
-          name: 'OLD MEME CLUB',
+          name: 'ОН РОП наоборот :)',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: 'УГАДАЙ ФИЛЬМЫ',
+          name: 'РебуСЫ',
           createdAt: new Date(),
           updatedAt: new Date(),
         },

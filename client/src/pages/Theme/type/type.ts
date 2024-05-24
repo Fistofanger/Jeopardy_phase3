@@ -13,6 +13,7 @@ export type Question = {
   themeId: ThemeId;
   score: number;
   isAnswered: boolean
+  image: string
 }
 
 export type QuestionId = Question['id'];
@@ -23,7 +24,7 @@ export type ActionTheme = {
 }
 
 export type ThemeState = {
-  themes: Theme[] ;
+  themes: Theme[];
 };
 
 export type ThemesResponse = {
