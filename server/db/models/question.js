@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       score: {
         type: DataTypes.INTEGER,
       },
+      isAnswered: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+      },
     },
     {
       sequelize,

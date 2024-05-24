@@ -1,5 +1,6 @@
 const express = require('express');
 const removeHeaders = require('./middlewares/removeHeaders');
+
 const indexRouter = require('./routes/index.routes');
 
 const app = express();
