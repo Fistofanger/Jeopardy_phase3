@@ -17,7 +17,7 @@ function AuthorizationPage(): JSX.Element {
     e.preventDefault();
 
     if (password !== '' && login !== '') {
-      const { data }: AxiosResponse<UsersResponse> = await request.post('/users', {
+      const { data }: AxiosResponse<UsersResponse> = await request.post('/users/login', {
         email: login,
         password,
       });

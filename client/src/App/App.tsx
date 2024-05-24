@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
 
 import './App.css';
-// import type { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios';
 
 // import type { Place } from '../pages/Place/type/type';
 
 import AppRoutes from './provider/AppRoutes';
 import Navbar from '../pages/Navbar/Navbar';
 // import { useTheme } from '../hooks/useTheme';
-// import { useAppDispatch } from './store/store';
-// import { request } from '../services/axiosInstance';
-
-// import ErrorKey from '../pages/ErrorKeyReact/ErrorKey';
+import { useAppDispatch } from './store/store';
+import { request, setAccessToken } from '../services/axiosInstance';
+import type { UsersResponse } from '../pages/Auth/type/type';
 
 function App(): JSX.Element {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   //                забыл протипизировать функцию
   // const axiosPlaces = async (): Promise<void> => {
@@ -27,12 +26,17 @@ function App(): JSX.Element {
 
   // const [, togleTheme] = useTheme();
 
-  console.log('body app 1 ');
+  const axiosToken = async (): Promise<void> => {
+    const { data }: AxiosResponse<UsersResponse> = await request.get('/tokens/refresh');
+    if (data.message === 'success') {
+      console.log(data.accessToken);
+      setAccessToken(data.accessToken);
+      dispatch({ type: 'users/login', payload: data.user });
+    }
+  };
 
   useEffect(() => {
-    console.log('effect app 4 ');
-    // axiosPlaces().catch(console.log);
-    return () => console.log('clear effect app.tsx');
+    axiosToken().catch(console.log);
   }, []);
 
   return (

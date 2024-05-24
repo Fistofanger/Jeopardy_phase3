@@ -24,12 +24,13 @@ function Navbar(): JSX.Element {
         <NavLink to="/" className="active">
           Главная
         </NavLink>
-        <NavLink to="/themes" className="active">
-          Темы игры
-        </NavLink>
+
         {user ? (
           <>
-            <p>{user.username}</p>
+            <NavLink to="/themes" className="active">
+              Темы игры
+            </NavLink>
+            <p>Привет, {user.userName}</p>
             <button onClick={onHandleLogout} type="button">
               Выход
             </button>
