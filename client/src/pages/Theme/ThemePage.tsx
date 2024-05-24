@@ -11,7 +11,7 @@ function ThemePage(): JSX.Element {
     <div className="ThemePage">
       {themes.map((theme) => (
         <div key={theme.id} className="ThemeRow">
-          <h2>{theme.name}</h2>
+          <h3>{theme.name}</h3>
           <div className='QuestionsRow'>
             {theme.Questions.map((question) => (
               <CardPage key={question.id} question={question} />

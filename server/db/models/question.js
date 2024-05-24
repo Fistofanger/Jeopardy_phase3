@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
         },
       },
+      image: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
       score: {
         type: DataTypes.INTEGER,
       },
