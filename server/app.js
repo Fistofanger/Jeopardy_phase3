@@ -1,5 +1,5 @@
 const express = require('express');
-const removeHeaders = require('./middleware/removeHeaders');
+const removeHeaders = require('./middlewares/removeHeaders');
 // const indexRouter = require('./routes/index.router');
 
 const app = express();

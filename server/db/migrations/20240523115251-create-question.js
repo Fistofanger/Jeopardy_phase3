@@ -28,6 +28,10 @@ module.exports = {
       score: {
         type: Sequelize.INTEGER,
       },
+      isAnswered: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
