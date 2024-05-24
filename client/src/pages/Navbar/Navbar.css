@@ -6,10 +6,12 @@ nav {
   width: 1200px;
   background-color: #2a2626;
   padding: 10px 20px;
+  margin-bottom: 30px;
 }
 
 /* Стили для ссылок внутри навбара */
-nav a {
+nav a,
+nav p {
   color: white;
   text-decoration: none;
   font-size: 18px;

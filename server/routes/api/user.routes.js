@@ -6,16 +6,16 @@ const {
   verifyAccessToken,
 } = require('../../middlewares/authMiddleware');
 
-// router.get('/users/:id', verifyAccessToken, userController.getUserById);
+// router.get('/check', verifyAccessToken, userController.getUserById);
 
 router.post(
   '/',
   [
-    body('username').notEmpty().withMessage('Имя обязательно'),
+    body('userName').notEmpty().withMessage('Имя обязательно'),
     body('email').isEmail().withMessage('Неверный формат email'),
     body('password')
-      .isLength({ min: 5 })
-      .withMessage('Пароль должен содержать минимум 5 символов'),
+      .isLength({ min: 3 })
+      .withMessage('Пароль должен содержать минимум 3 символов'),
   ],
   (req, res, next) => {
     const errors = validationResult(req);
@@ -32,8 +32,8 @@ router.post(
   [
     body('email').isEmail().withMessage('Неверный формат email'),
     body('password')
-      .isLength({ min: 5 })
-      .withMessage('Пароль должен содержать минимум 5 символов'),
+      .isLength({ min: 3 })
+      .withMessage('Пароль должен содержать минимум 3 символов'),
   ],
   (req, res, next) => {
     const errors = validationResult(req);

@@ -2,13 +2,22 @@ import React, { useEffect } from 'react';
 
 import './App.css';
 import type { AxiosResponse } from 'axios';
+
 import type { ThemesResponse } from '../pages/Theme/type/type';
+
 import AppRoutes from './provider/AppRoutes';
 import Navbar from '../pages/Navbar/Navbar';
 import { useAppDispatch } from './store/store';
-// import { useTheme } from '../hooks/useTheme';
-import { request } from '../services/axiosInstance';
-// import ErrorKey from '../pages/ErrorKeyReact/ErrorKey';
+
+
+import { useAppDispatch } from './store/store';
+import { request, setAccessToken } from '../services/axiosInstance';
+import type { UsersResponse } from '../pages/Auth/type/type';
+
+
+
+
+
 
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -19,11 +28,23 @@ function App(): JSX.Element {
     }
   };
 
-  console.log('body app 1 ');
+
+  const axiosToken = async (): Promise<void> => {
+    const { data }: AxiosResponse<UsersResponse> = await request.get('/tokens/refresh');
+    if (data.message === 'success') {
+     
+      setAccessToken(data.accessToken);
+      dispatch({ type: 'users/login', payload: data.user });
+    }
+  };
 
   useEffect(() => {
+
+    axiosToken().catch(console.log);
+
     axiosPlaces().catch(console.log);
     return () => console.log('clear effect app.tsx');
+
   }, []);
 
   return (

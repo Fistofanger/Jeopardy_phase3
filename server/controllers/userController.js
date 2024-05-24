@@ -5,10 +5,27 @@ const generateTokens = require('../utils/authUtils');
 const cookiesConfig = require('../config/cookiesConfig');
 const { User } = require('../../server/db/models');
 
+// exports.getUserById = async (req, res) => {
+//   try {
+//     const { id } = res.locals.user;
+//     const user = await User.findOne({ where: { id } });
+
+//     delete user.password;
+//     const { accessToken, refreshToken } = generateTokens({ user });
+
+//     return res
+//       .cookie('refreshToken', refreshToken, cookiesConfig)
+//       .status(200)
+//       .json({ message: 'success', accessToken, user });
+//   } catch ({ message }) {
+//     res.status(500).json({ message });
+//   }
+// };
+
 exports.createUser = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { userName, email, password } = req.body;
   try {
-    const userInDb = await prisma.user.findUnique({ where: { email } });
+    const userInDb = await User.findOne({ where: { email } });
     if (userInDb) {
       return res
         .status(400)
@@ -16,8 +33,11 @@ exports.createUser = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await prisma.user.create({
-      data: { username, email, password: hashedPassword },
+    const user = await User.create({
+      userName,
+      email,
+      password: hashedPassword,
+      totalScore: 0,
     });
 
     delete user.password;

@@ -4,16 +4,8 @@ const jwtConfig = require('../config/jwtConfig');
 
 function generateTokens(payload) {
   return {
-    accessToken: jwt.sign(
-      payload,
-      process.env.ACCESS_TOKEN_SECRET,
-      jwtConfig.access
-    ),
-    refreshToken: jwt.sign(
-      payload,
-      process.env.REFRESH_TOKEN_SECRET,
-      jwtConfig.refresh
-    ),
+    accessToken: jwt.sign(payload, 'access', jwtConfig.access),
+    refreshToken: jwt.sign(payload, 'refresh', jwtConfig.refresh),
   };
 }
 
