@@ -3,40 +3,48 @@ import React, { useEffect } from 'react';
 import './App.css';
 import type { AxiosResponse } from 'axios';
 
-// import type { Place } from '../pages/Place/type/type';
+import type { ThemesResponse } from '../pages/Theme/type/type';
 
 import AppRoutes from './provider/AppRoutes';
 import Navbar from '../pages/Navbar/Navbar';
-// import { useTheme } from '../hooks/useTheme';
+import { useAppDispatch } from './store/store';
+
+
 import { useAppDispatch } from './store/store';
 import { request, setAccessToken } from '../services/axiosInstance';
 import type { UsersResponse } from '../pages/Auth/type/type';
 
+
+
+
+
+
 function App(): JSX.Element {
   const dispatch = useAppDispatch();
+  const axiosPlaces = async (): Promise<void> => {
+    const response: AxiosResponse<ThemesResponse> = await request.get('/themes');
+    if (response.data.message === 'success') {
+      dispatch({ type: 'themes/load', payload: response.data.themes });
+    }
+  };
 
-  //                забыл протипизировать функцию
-  // const axiosPlaces = async (): Promise<void> => {
-  //   const response: AxiosResponse<{ message: string; places: Place[] }> =
-  //     await request.get('/places');
-  //   if (response.data.message === 'success') {
-  //     dispatch({ type: 'places/load', payload: response.data.places });
-  //   }
-  // };
-
-  // const [, togleTheme] = useTheme();
 
   const axiosToken = async (): Promise<void> => {
     const { data }: AxiosResponse<UsersResponse> = await request.get('/tokens/refresh');
     if (data.message === 'success') {
-      console.log(data.accessToken);
+     
       setAccessToken(data.accessToken);
       dispatch({ type: 'users/login', payload: data.user });
     }
   };
 
   useEffect(() => {
+
     axiosToken().catch(console.log);
+
+    axiosPlaces().catch(console.log);
+    return () => console.log('clear effect app.tsx');
+
   }, []);
 
   return (
